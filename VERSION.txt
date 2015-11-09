@@ -1,2 +1,2 @@
-RoDKoDRoK packages - The Content and Server Management Framework - V 0.0.2
-Version disponible par package - exemple format 0.0.x-1.0
+RoDKoDRoK packages - The Content and Server Management Framework - V 0.0.4
+Version disponible par package - exemple format 0.0.x-1.0, 0.0.+3-1.2, ...
