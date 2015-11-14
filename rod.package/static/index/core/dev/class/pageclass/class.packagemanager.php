@@ -280,10 +280,12 @@ class PackageManager extends ClassIniter
 			foreach($tabpackages as $packagecour)
 			{
 				$packagecodename=$packagecour['nomcodepackage'];
-				$toupdate=0;
+				//$toupdate=0;
 				if($instancePackage->checkUpdate($packagecodename))
+				{
 					$toupdate=1;
-				$this->db->query("update `package` set toupdate='".$toupdate."' where nomcodepackage='".$packagecodename."'");
+					$this->db->query("update `package` set toupdate='".$toupdate."' where nomcodepackage='".$packagecodename."'");
+				}
 			}
 			
 			$this->instanceMessage->set_message($this->instanceLang->getTranslation("Les dernieres mises a jours disponibles sont visibles"));
