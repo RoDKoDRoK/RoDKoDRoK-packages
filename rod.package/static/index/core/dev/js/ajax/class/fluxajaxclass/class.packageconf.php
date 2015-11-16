@@ -23,7 +23,8 @@ class PackageConf extends ClassIniter
 		if($this->includer->include_pratikclass("Package"))
 		{
 			$instancePackage=new PratikPackage($this->initer);
-			$instancePackage->getPackageFromRoDKoDRoKCom($packagecodename,$update);
+			if($update!="2") //cas update local, pas de download externe
+				$instancePackage->getPackageFromRoDKoDRoKCom($packagecodename,$update);
 			$preform=$instancePackage->preparePackageConfForm($packagecodename);
 		}
 		

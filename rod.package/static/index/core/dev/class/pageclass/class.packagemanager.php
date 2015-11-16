@@ -68,6 +68,7 @@ class PackageManager extends ClassIniter
 		$preform['downloadanddeploybutton']=true;
 		$preform['destroybutton']=true;
 		$preform['updatebutton']=true;
+		$preform['updatelocalbutton']=true;
 		$preform['checkupdatebutton']=true;
 		
 		
@@ -284,6 +285,11 @@ class PackageManager extends ClassIniter
 				if($instancePackage->checkUpdate($packagecodename))
 				{
 					$toupdate=1;
+					$this->db->query("update `package` set toupdate='".$toupdate."' where nomcodepackage='".$packagecodename."'");
+				}
+				if($instancePackage->checkLocalUpdate($packagecodename))
+				{
+					$toupdate=2;
 					$this->db->query("update `package` set toupdate='".$toupdate."' where nomcodepackage='".$packagecodename."'");
 				}
 			}
