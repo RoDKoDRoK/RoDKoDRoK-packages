@@ -2101,10 +2101,9 @@ class PratikPackage extends ClassIniter
 		//check package to update
 		$downloader=null;
 		$yourfile="core/files/packagezip/".$packagecodename.".zip";
+		//cas aucune présence du package, pas d'update
 		if(!file_exists($yourfile))
-			if(file_exists("package/".$packagecodename))
-				return true;
-			else
+			if(!file_exists("package/".$packagecodename))
 				return false;
 		
 		//downloader init
@@ -2121,6 +2120,11 @@ class PratikPackage extends ClassIniter
 		//when distant file not exists
 		if($distantfilesize=="")
 			return false;
+		
+		//cas zip package inexistant, update necessaire
+		if(!file_exists($yourfile))
+			if(file_exists("package/".$packagecodename))
+				return true;
 		
 		//data your file
 		$yourfilesize=filesize($yourfile);
